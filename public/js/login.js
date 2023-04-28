@@ -12,7 +12,7 @@ const loginFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace('/');
+      document.location.replace('/blogPost');
     } else {
       alert('Failed to log in');
     }
@@ -23,13 +23,12 @@ document
   .querySelector('.login-form')
   .addEventListener('submit', loginFormHandler);
 
-  const signupForm = async (event) => {
+  const signupFormHandler = async (event) => {
     event.preventDefault();
   
     const username = document.querySelector('#username-signup').value.trim();
     const email = document.querySelector('#email-signup').value.trim();
     const password = document.querySelector('#password-signup').value.trim();
-
   
     if (username && email && password) {
       const response = await fetch('/api/users', {
@@ -42,7 +41,7 @@ document
       });
   
       if (response.ok) {
-        document.location.replace('/dashboard');
+        document.location.replace('/blogPost');
       } else {
         alert(response.statusText);
       }
@@ -51,4 +50,4 @@ document
   
 document
 .querySelector('.signup-form')
-.addEventListener('submit', signupForm)
+.addEventListener('submit', signupFormHandler)
